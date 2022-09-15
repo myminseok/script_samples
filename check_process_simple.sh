@@ -2,8 +2,8 @@
 
 SCRIPT_NAME=$(basename $0)
 
-if pgrep -f "$SCRIPT_NAME" > /dev/null
-then
+if pgrep -f "$SCRIPT_NAME" > /dev/null && 
+[ "$(pgrep -f "$SCRIPT_NAME") != "$$" ]; then
     echo "another process is  Running"
     exit 0;
 else
